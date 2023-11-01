@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Git Clone') {
-            steps {
-                // Clone the Git repository
-                git 'https://github.com/vishalkumar392392/react-course-app.git'
-            }
-        }
 
         stage('NPM Install') {
             steps {
