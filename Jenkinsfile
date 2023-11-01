@@ -1,17 +1,15 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'nodejs-14.17.0' // Use the name specified in your Jenkins configuration
-    }
-
     stages {
 
-        stage('NPM Install') {
-            steps {
+        steps {
+                // Install Node.js and npm (if not already installed)
+                sh 'curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -'
+                sh 'sudo yum install -y nodejs'
+
                 // Install project dependencies using npm
                 sh 'npm install'
-            }
         }
 
         stage('NPM Build') {
