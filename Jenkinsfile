@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'nodejs-14.17.0' // Use the name specified in your Jenkins configuration
+    }
+
     stages {
 
         stage('NPM Install') {
