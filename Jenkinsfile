@@ -1,13 +1,18 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "/path/to/node/bin:${env.PATH}"
+        HOME = "/home/ec2-user"  // Set the appropriate home directory
+    }
+
     stages {
 
         stage('NPM Install') {
              steps {
                 // Install Node.js and npm (if not already installed)
-                sh 'curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -'
-                sh 'sudo yum install -y nodejs'
+//                sh 'curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -'
+  //              sh 'sudo yum install -y nodejs'
 
                 // Install project dependencies using npm
                 sh 'npm install'
