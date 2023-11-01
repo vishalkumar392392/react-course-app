@@ -1,9 +1,8 @@
 pipeline {
     agent any
 
-    environment {
-        PATH = "/path/to/node/bin:${env.PATH}"
-        HOME = "/home/ec2-user"  // Set the appropriate home directory
+    tools {
+        nodejs 'nodejs'
     }
 
     stages {
