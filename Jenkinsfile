@@ -28,7 +28,6 @@ pipeline {
         stage('PM2 Serve') {
             steps {
                 // Serve the built React app using PM2
-                sh 'pm2 delete static-page-server-3000'
                 sh 'pm2 serve build 3000 --spa'
             }
         }
