@@ -35,7 +35,8 @@ const rows = [
   { id: 10, lastName: "vishal", firstName: "palla", age: 28 },
   { id: 11, lastName: "vikas", firstName: "palla", age: 28 },
   { id: 12, lastName: "ajith", firstName: "palla", age: 32 },
-  { id: 13, lastName: "Gayathri", firstName: "palla", age: 32 },
+  { id: 13, lastName: "Gayathri", firstName: "palla", age: 28 },
+  { id: 13, lastName: "Ramya", firstName: "palla", age: 32 },
 ];
 
 const InputBox = ({ edit, setEdit }) => {
