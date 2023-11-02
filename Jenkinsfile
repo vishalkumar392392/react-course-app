@@ -21,7 +21,7 @@ pipeline {
 
         stage('PM2 Serve') {
             steps {
-                sh 'pm2 serve build 4000 --spa'
+                sh 'serve -s build'
             }
         }
     }
