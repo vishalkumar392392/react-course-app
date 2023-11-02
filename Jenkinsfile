@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('PM2 INSTALL') {
-            steps {
-                sh 'npm install -g pm2'
-            }
-        }
-
         stage('NPM Install') {
              steps {
                 sh 'npm install'
@@ -28,9 +22,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Build the Docker image for the React app
-                sh 'docker stop course-react-app'
-                sh 'docker remove course-react-app'
-                sh 'docker rmi vishalkumar392/course-app:latest'
+                sh 'docker system prune --all --force'
                 sh 'docker build -t vishalkumar392/course-app .'
             }
         }
