@@ -21,7 +21,7 @@ pipeline {
 
         stage('PM2 Serve') {
             steps {
-                sh 'pm2 start src/App.js --name "my-app" --no-daemon'
+                sh 'pm2 serve build/ 3000 --name "react-build" --spa'
             }
         }
     }
