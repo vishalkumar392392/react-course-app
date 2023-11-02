@@ -25,10 +25,25 @@ pipeline {
             }
         }
 
-        stage('PM2 Serve') {
+        stage('Build Docker Image') {
             steps {
-                sh 'pm2 serve build 80 --spa'
+                // Build the Docker image for the React app
+                
+                sh 'docker build -t vishalkumar392/course-app .'
             }
         }
+
+        stage('Run Container') {
+            steps {
+                // Run the container from the recently built image
+                sh 'docker run -d -p 3000:5000 vishalkumar392/course-app/course-app:latest'
+            }
+        }
+
+        // stage('PM2 Serve') {
+        //     steps {
+        //         sh 'pm2 serve build 80 --spa'
+        //     }
+        // }
     }
 }
