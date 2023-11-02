@@ -21,7 +21,7 @@ pipeline {
 
         stage('PM2 Serve') {
             steps {
-                sh 'serve -s build'
+                sh 'serve -s build -l 3000'
             }
         }
     }
