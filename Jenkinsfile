@@ -23,6 +23,9 @@ pipeline {
             steps {
                 // Build the Docker image for the React app
                 sh 'docker system prune --all --force'
+                sh 'docker stop course-react-app'
+                sh 'docker rm course-react-app'
+                sh 'docker rmi vishalkumar392/course-app:latest'
                 sh 'docker build -t vishalkumar392/course-app .'
             }
         }
