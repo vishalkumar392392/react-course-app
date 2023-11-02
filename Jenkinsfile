@@ -7,10 +7,16 @@ pipeline {
 
     stages {
 
+        stage('PM2 INSTALL') {
+            steps {
+                sh 'npm install -g pm2'
+            }
+        }
+
         stage('NPM Install') {
              steps {
                 sh 'npm install'
-        }
+            }
         }
 
         stage('NPM Build') {
@@ -21,7 +27,7 @@ pipeline {
 
         stage('PM2 Serve') {
             steps {
-                sh 'pm2 serve build 3000 --spa'
+                sh 'pm2 serve build 80 --spa'
             }
         }
     }
