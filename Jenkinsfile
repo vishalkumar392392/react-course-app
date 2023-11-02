@@ -28,6 +28,9 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Build the Docker image for the React app
+                sh 'docker stop course-react-app'
+                sh 'docker remove course-react-app'
+                sh 'docker rmi vishalkumar392/course-app:latest'
                 sh 'docker build -t vishalkumar392/course-app .'
             }
         }
@@ -35,7 +38,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 // Run the container from the recently built image
-                sh 'docker run -d -p 3000:5000 vishalkumar392/course-app:latest'
+                sh 'docker run -d -p 3000:5000 --name course-react-app vishalkumar392/course-app:latest'
             }
         }
 
