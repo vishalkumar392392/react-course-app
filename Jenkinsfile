@@ -33,14 +33,8 @@ pipeline {
         stage('Run Container') {
             steps {
                 // Run the container from the recently built image
-                sh 'docker run -d -p 3000:5000 --name course-react-app vishalkumar392/course-app:latest'
+                sh 'docker run -d -p 80:5000 --name course-react-app vishalkumar392/course-app:latest'
             }
         }
-
-        // stage('PM2 Serve') {
-        //     steps {
-        //         sh 'pm2 serve build 80 --spa'
-        //     }
-        // }
     }
 }
