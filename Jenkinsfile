@@ -21,7 +21,7 @@ pipeline {
 
         stage('PM2 Serve') {
             steps {
-                sh 'pm2 start npm -- start'
+                sh 'pm2 serve build 3000 --spa'
             }
         }
     }
